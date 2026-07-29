@@ -10,13 +10,13 @@ from pathlib import Path
 current_path = Path.cwd()
 
 # [힌트] '현재 폴더에서만' 패턴에 맞는 파일을 찾는 메서드는? (하위 폴더 X)
-for python_file in current_path._____('*.py'):  # TODO
+for python_file in current_path.glob('*.py'):  # TODO
     print(python_file.name)
 
 print('=====')
 
 # [힌트] '하위 폴더까지' 재귀적으로 찾는 메서드는? (r = recursive)
-for txt_file in current_path._____('*.txt'):  # TODO
+for txt_file in current_path.rglob('*.txt'):  # TODO
     print(txt_file.name)
 
 
@@ -24,7 +24,7 @@ for txt_file in current_path._____('*.txt'):  # TODO
 result = []
 for item in current_path.rglob('*_*'):
     # [힌트] (1) 파일만 걸러내는 메서드  (2) 문자열에서 특정 문자 개수를 세는 메서드
-    if item._____() and item.name._____('_') == 1:  # TODO
+    if item.is_file() and item.name.count('_') == 1:  # TODO
         result.append(item.name)
 
 print(result)

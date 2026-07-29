@@ -17,14 +17,14 @@ data = {
 }
 
 # [힌트] dict 를 JSON '문자열'로 바꾸는 json 메서드는? (s = string)
-json_string = json._____(data, ensure_ascii=False, indent=4)  # TODO
+json_string = json.dumps(data, ensure_ascii=False, indent=4)  # TODO
 new_json_1 = Path('sample_data/sample1.json')
 # [힌트] 문자열을 파일에 통째로 저장하는 메서드는?
-new_json_1._____(json_string, encoding='utf-8')  # TODO
+new_json_1.write_text(json_string, encoding='utf-8')  # TODO
 
 new_json_2 = Path('sample_data/sample2.json')
 with new_json_2.open('w', encoding='utf-8') as f:
     # [힌트] dict 를 파일에 '바로' 저장하는 json 메서드는?
-    json._____(data, f, ensure_ascii=False, indent=4)  # TODO
+    json.dump(data, f, ensure_ascii=False, indent=4)  # TODO
 
 print('저장 완료 :', new_json_1, '/', new_json_2)
